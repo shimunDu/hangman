@@ -1,0 +1,83 @@
+<!DOCTYPE	html>
+<html>
+
+<head>
+    <title>Hangman starting page</title>
+</head>
+
+<body>
+    <h1>Hangman v1, do not disable form popup</h1>
+
+    <script>
+        var film = "The Warriors";
+        var slova = film.split("");
+
+        slova.forEach(function(element, index) {
+            if (element == " ") {
+                slova[index] = "space";
+            } else {
+                slova[index] = element.toLowerCase()
+            }
+        })
+
+        function ispisi(){
+          var ispis = "";
+          var slovaSva = film.split("");
+          for(var i = 0; i< film.length; i++){
+            if(slova[i]==null){
+              ispis += slovaSva[i];
+            }else if(slova[i]=="space"){
+              ispis += " ";
+            }else{
+              ispis += "_";
+            }
+          }
+
+          return ispis;
+        }
+
+        function jeliKompletanTekst(slovo) {
+
+
+            var slovoLower = slovo.toLowerCase();
+
+            var nullCounter = 0;
+
+            for (var i = 0; i < slova.length; i++) {
+
+
+                if (slova[i] == slovoLower) {
+                    slova[i] = null;
+
+                }
+
+                if (slova[i] == null || slova[i] == "space")
+                    ++nullCounter;
+
+            }
+
+            console.log(slova);
+            console.log(nullCounter);
+
+            if (nullCounter == slova.length) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        var name = prompt("What's your name?");
+
+        alert("Dobrodosli " + name + "!, Pogadate film!");
+
+
+        do {
+            var slovo = prompt("Unesite slove, trenutno stanje:" + ispisi());
+
+        } while (!jeliKompletanTekst(slovo));
+
+        prompt("Bravo, pogodili ste da je trazeni pojam:" + film)
+    </script>
+</body>
+
+</html>
