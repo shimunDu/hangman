@@ -1,5 +1,6 @@
 <!DOCTYPE	html>
 <html>
+<link rel="stylesheet" type="text/css" href="css/hangman.css">
 
 <head>
     <title>Hangman</title>
@@ -7,16 +8,33 @@
 
 <body>
     <h1>Hangman</h1>
-    <p id="hangman_print">aa</p>
+    <p id="hangman_print"></p>
     <FORM NAME="myform" ACTION="" METHOD="GET">
-      <label>Unesite slovo:</label>
-        <INPUT id = "id1" TYPE="text" NAME="inputbox" VALUE="" >
-        <INPUT id = "id2" TYPE="button" NAME="button" Value="Posalji slovo" onClick="hangmanSubmit(this.form)">
+        <label>Unesite slovo:</label>
+        <INPUT id="id1" TYPE="text" NAME="inputbox" VALUE="">
+        <INPUT id="id2" TYPE="button" NAME="button" Value="Posalji slovo" onClick="hangmanSubmit(this.form)">
     </FORM>
-</div>
+    </div>
 
-<script src="js/hangman.js">
-</script>
+
+    <div class='topmatter'>
+        <!-- Add Arms to the armbox, and Legs to the legbox! -->
+        <div class='hang-container'>
+            <div class='scaffolding-top'></div>
+            <div class='scaffolding-left'></div>
+            <div class='draw-area'>
+                <div class='rope'></div>
+                <div id='headPlaceholder'> </div>
+                <div class='armbox'></div>
+                <div class='legbox'></div>
+            </div>
+
+            <div class='scaffolding-base'></div>
+        </div>
+
+        <div class='bottommatter'></div>
+        <script src="js/hangman.js">
+        </script>
 </body>
 
 </html>
