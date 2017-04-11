@@ -9,16 +9,15 @@
 <body>
     <h1>Hangman</h1>
     <p id="hangman_print"></p>
-    <FORM NAME="myform" ACTION="" METHOD="GET">
+    <form NAME="myform" action="" method="GET">
         <label>Unesite slovo:</label>
-        <INPUT id="id1" TYPE="text" NAME="inputbox" VALUE="">
-        <INPUT id="id2" TYPE="button" NAME="button" Value="Posalji slovo" onClick="hangmanSubmit(this.form)">
-    </FORM>
+        <input id="hangmanInputText" type="text" name="inputbox" value="">
+        <input id="hangmanSubmitButton" type="button" name="button" value="Posalji slovo" onClick="hangmanSubmit(this.form)">
+    </form>
     </div>
 
-
+<!-- OVO je odnekud iskopirano, iscrtava se hangma pomocu margina-->
     <div class='topmatter'>
-        <!-- Add Arms to the armbox, and Legs to the legbox! -->
         <div class='hang-container'>
             <div class='scaffolding-top'></div>
             <div class='scaffolding-left'></div>
@@ -31,10 +30,9 @@
 
             <div class='scaffolding-base'></div>
         </div>
-
         <div class='bottommatter'></div>
-        <script src="js/hangman.js">
-        </script>
-</body>
 
+
+        <script src="js/hangman.js"> </script>
+</body>
 </html>
