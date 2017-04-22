@@ -18,7 +18,7 @@ var maxBrojPromasaja = 7;
 
 //film koji se pogada
 //TODO updateati na neku listu i random birati film iz liste
-var film = "skafisnjafskaf";
+var film = "teo";
 var brojNepogodenihSlova = film.length;
 
 var poljeNepogodenih = [];
