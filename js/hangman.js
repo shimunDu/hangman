@@ -40,7 +40,7 @@ document.getElementById("hangmanInputText").addEventListener("keypress", functio
             event.preventDefault();
 
            //u tekst element u formi postavi prazni string da izbrises uneseni tekst
-           document.getElementById('hangmanInputText').value = "pero";
+           document.getElementById('hangmanInputText').value = "";
 
         }
     });
