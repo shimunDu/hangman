@@ -21,7 +21,7 @@ var maxBrojPromasaja = 7;
 var film = "teo";
 var brojNepogodenihSlova = film.length;
 
-var poljePogodenih = [];
+var poljeZaIspis = [];
 
 
 /******************************************************************************
@@ -46,15 +46,15 @@ document.getElementById("hangmanInputText").addEventListener("keypress", functio
     });
 
 
-//popuni poljeNepogodenih sa praznim crticama u pocetku
+//popuni poljeZaIspis sa praznim crticama u pocetku
 for (var i = 0; i < film.length; i++) {
-    poljePogodenih[i] = "_";
+    poljeZaIspis[i] = "_";
 
 }
 
-//ispis poljeNepogodenih sto ce prvi put rezultirati ispisom broja
+//ispis poljeZaIspis sto ce prvi put rezultirati ispisom broja
 //crtica koji je jednak broju slova filma odnosno duljini stringa film
-ispisiPoljePogodenih();
+ispisipoljeZaIspis();
 
 
 /******************************************************************************
@@ -69,15 +69,15 @@ function hangmanSubmit(form) {
 //dohvati uneseno slovo iz forme
     var input = form.inputbox.value;
 
-    updateajPoljePogodenih(input);
-    ispisiPoljePogodenih();
+    updateajpoljeZaIspis(input);
+    ispisipoljeZaIspis();
     iscrtajCoeka();
 
     //TODO  dodaj jos ako korisnik pogodi sva slova da iskoci neki alert
 
 }
 
-function updateajPoljePogodenih(novoSlovo) {
+function updateajpoljeZaIspis(novoSlovo) {
 
     var brojPogodenihSlovaNaPocetkuPozivaFunkcije = brojPogodenihSlova;
 
@@ -87,8 +87,8 @@ function updateajPoljePogodenih(novoSlovo) {
 
 
         if (novoSlovo == film[i]) {
-          //updateaj poljeNepogodenih sa pogodenim slovom i smanje broj nepogodenih
-            poljePogodenih[i] = film[i];
+          //updateaj poljeZaIspis sa pogodenim slovom i smanje broj nepogodenih
+            poljeZaIspis[i] = film[i];
             --brojPogodenihSlova;
         }
     }
@@ -102,16 +102,16 @@ function updateajPoljePogodenih(novoSlovo) {
 }
 
 
-//funkcija koja ispisuje poljeNepogodenih
-//kako se poljeNepogodenih updateata, sve ce manje crtica biti u polju
-//i string generiran iz poljeNepogodenih ce biti cjelovitiji
-function ispisiPoljePogodenih() {
+//funkcija koja ispisuje poljeZaIspis
+//kako se poljeZaIspis updateata, sve ce manje crtica biti u polju
+//i string generiran iz poljeZaIspis ce biti cjelovitiji
+function ispisipoljeZaIspis() {
 
     //kreiraj string iz polja nepogodenih
-    var poljePogodenihKaoString = poljePogodenih.join(" ");
+    var poljeZaIspisKaoString = poljeZaIspis.join(" ");
 
     //ispisi taj string u paragraf sa idem hangman_print
-    document.getElementById('hangman_print').innerHTML = poljePogodenihKaoString;
+    document.getElementById('hangman_print').innerHTML = poljeZaIspisKaoString;
 }
 
 //ova funckija je malo cudna zasad moze biti bolja
