@@ -21,7 +21,7 @@ var maxBrojPromasaja = 7;
 var film = "teo";
 var brojNepogodenihSlova = film.length;
 
-var poljeNepogodenih = [];
+var poljePogodenih = [];
 
 
 /******************************************************************************
@@ -48,13 +48,13 @@ document.getElementById("hangmanInputText").addEventListener("keypress", functio
 
 //popuni poljeNepogodenih sa praznim crticama u pocetku
 for (var i = 0; i < film.length; i++) {
-    poljeNepogodenih[i] = "_";
+    poljePogodenih[i] = "_";
 
 }
 
 //ispis poljeNepogodenih sto ce prvi put rezultirati ispisom broja
 //crtica koji je jednak broju slova filma odnosno duljini stringa film
-ispisiPoljeNepogodenih();
+ispisiPoljePogodenih();
 
 
 /******************************************************************************
@@ -69,17 +69,17 @@ function hangmanSubmit(form) {
 //dohvati uneseno slovo iz forme
     var input = form.inputbox.value;
 
-    updateajPoljeNepogodenih(input);
-    ispisiPoljeNepogodenih();
+    updateajPoljePogodenih(input);
+    ispisiPoljePogodenih();
     iscrtajCoeka();
 
     //TODO  dodaj jos ako korisnik pogodi sva slova da iskoci neki alert
 
 }
 
-function updateajPoljeNepogodenih(novoSlovo) {
+function updateajPoljePogodenih(novoSlovo) {
 
-    var brojNepogodenihSlovaNaPocetkuPozivaFunkcije = brojNepogodenihSlova;
+    var brojPogodenihSlovaNaPocetkuPozivaFunkcije = brojPogodenihSlova;
 
     //vrti kroz sva slova trazenog filma i usporeduj da li je trenutno slovo jednako
     //novounesenom slovu
@@ -88,15 +88,15 @@ function updateajPoljeNepogodenih(novoSlovo) {
 
         if (novoSlovo == film[i]) {
           //updateaj poljeNepogodenih sa pogodenim slovom i smanje broj nepogodenih
-            poljeNepogodenih[i] = film[i];
-            --brojNepogodenihSlova;
+            poljePogodenih[i] = film[i];
+            --brojPogodenihSlova;
         }
     }
 
     //ako je broj nepogodenih slova isti na pocetku funkcije i na kraju
     //znaci da nijedno slovo nije pogodeno i povecaj broj promasaja
     //sto ce utjecati na iscrtajCoeka funkciju da iscrta vise dijelova tijela
-    if (brojNepogodenihSlova == brojNepogodenihSlovaNaPocetkuPozivaFunkcije) {
+    if (brojPogodenihSlova == brojPogodenihSlovaNaPocetkuPozivaFunkcije) {
         brojPromasaja++;
     }
 }
@@ -105,13 +105,13 @@ function updateajPoljeNepogodenih(novoSlovo) {
 //funkcija koja ispisuje poljeNepogodenih
 //kako se poljeNepogodenih updateata, sve ce manje crtica biti u polju
 //i string generiran iz poljeNepogodenih ce biti cjelovitiji
-function ispisiPoljeNepogodenih() {
+function ispisiPoljePogodenih() {
 
     //kreiraj string iz polja nepogodenih
-    var poljeNepogodenihKaoString = poljeNepogodenih.join(" ");
+    var poljePogodenihKaoString = poljePogodenih.join(" ");
 
     //ispisi taj string u paragraf sa idem hangman_print
-    document.getElementById('hangman_print').innerHTML = poljeNepogodenihKaoString;
+    document.getElementById('hangman_print').innerHTML = poljePogodenihKaoString;
 }
 
 //ova funckija je malo cudna zasad moze biti bolja
